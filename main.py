@@ -7,13 +7,12 @@ from collections import defaultdict
 from argparse import Namespace
 
 from preprocess import reduce_and_split
-from dataset import IMDB_Dataset
 from vocab_and_tokenize import Vocabulary, Tokenize
 from model import Sentiment_Classifier
 
 
 args = Namespace(
-    raw_dataset_csv = "/Users/samhsia/Desktop/github/Deep_Learning-Practice/IMDB_sentiment/IMDB_Dataset.csv",
+    raw_dataset_csv = "/Users/samhsia/Desktop/github/IMDB_sentiment-analysis/IMDB_Dataset.csv",
     proportion = 0.1,
     train_proportion=0.8,
     val_proportion=0.1,
@@ -66,7 +65,7 @@ def main():
     criterion = nn.BCELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
-    epochs = 1
+    epochs = 3
     counter = 0
     clip = 5
     valid_loss_min = np.Inf
